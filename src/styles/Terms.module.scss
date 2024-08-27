@@ -1,0 +1,32 @@
+.terms {
+    padding: 80px 50px;
+    @media (max-width: 560px) {
+        padding: 40px 20px;
+    }
+}
+.title {
+    color: var(--black);
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    margin-bottom: 10px;
+}
+.text {
+    margin-bottom: 30px;
+    line-height: 2;
+    @media (max-width: 767px) {
+        line-height: 1.5;
+    }
+    li {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+    }
+}
+.dot {
+    width: 16px;
+    min-width: 16px;
+    height: 16px;
+    margin-right: 5px;
+}

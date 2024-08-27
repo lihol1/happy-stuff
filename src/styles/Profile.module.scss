@@ -1,0 +1,41 @@
+.profile {
+  width: 100%;
+  height: 100%;
+  padding: 50px 24px;
+  position: relative;
+  @media (max-width: 767px) {
+    padding: 50px 10px;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.group {
+  max-width: 300px;
+  background: #fff;
+  border-radius: 8px;
+  color: var(--black);
+  padding: 12px 24px;
+  margin: 0 auto;
+}
+
+.group input { 
+  color: var(--black);
+}
+.submit {
+ width: 240px;
+  margin: 0 auto;
+}
+.link {
+  position: absolute;
+  right: 5%;
+  bottom: 5%;
+  color: var(--black);
+  &:hover {
+    color: var(--grey);
+  }
+}
