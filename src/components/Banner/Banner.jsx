@@ -23,8 +23,7 @@ const Banner = () => {
                 />
             </div>
             <div className={styles.discount}>
-                <p> save up to <span>40%</span> off </p>
-                <button className={styles.more}>See more</button>
+                <p> save up to <span>40%</span> off </p>               
             </div>
         </section>
     );
