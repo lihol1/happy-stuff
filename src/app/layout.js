@@ -25,7 +25,7 @@ export const metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://acme.com'), //заменить
+  metadataBase: new URL('https://happy-stuff.vercel.app'), //заменить
   alternates: {
     canonical: '/',
     // languages: {
@@ -36,18 +36,14 @@ export const metadata = {
   openGraph: {
     title: 'Happy Stuff',
     description: 'E-commerce. Clothes for an inspiration',
-    url: 'https://nextjs.org', //заменить
+    url: 'https://happy-stuff.vercel.app', 
     siteName: 'Happy Stuff',
     images: [
+      
       {
-        url: 'https://nextjs.org/og.png', // Must be an absolute URL //заменить
-        width: 800,//заменить
-        height: 600,//заменить
-      },
-      {
-        url: 'https://nextjs.org/og-alt.png', // Must be an absolute URL //заменить
-        width: 1800,//заменить
-        height: 1600,//заменить
+        url: 'https://happy-stuff.vercel.app/images/og-image.webp', // Must be an absolute URL //заменить
+        width: 1200,
+        height: 630,
         alt: 'A man and a woman are on a beach',
       },
     ],
