@@ -10,7 +10,7 @@ export const getProducts = createAsyncThunk(
     async(_, thunkAPI)=>{
         try{
             
-            const res = await axios(`http://localhost:3005/products`);             
+            const res = await axios(`${BASE_URL}/products`);             
             return res.data
            
         }catch(err){

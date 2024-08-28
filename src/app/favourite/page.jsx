@@ -13,7 +13,7 @@ const FavouritePage = () => {
             {!favourite.length ? (                
                 <div className={styles.empty}>Favourite section is empty</div> 
                 ) : (
-                    <Products products={favourite} amount={5} title="Favourite" />
+                    <Products products={favourite} amount={100} title="Favourite" />
                 )
             }
     
