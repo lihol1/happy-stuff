@@ -1,6 +1,8 @@
 {
-    "name": "",
-    "short_name": "",
+    "name": "Happy stuff - e-commerce",
+    "short_name": "Happy stuff",
+    "description": "An application built with Next.js",
+    "start_url": "/",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
