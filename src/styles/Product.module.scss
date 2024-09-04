@@ -1,6 +1,6 @@
 @import "./Mixins.module.scss";
 .product {
-  position: relative;
+  // position: relative;
   display: flex; 
   max-width: 100%;
   overflow: hidden;
@@ -126,6 +126,7 @@
 }
 
 .actions {
+  position: relative;
   margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
@@ -177,12 +178,24 @@
   border-radius: 6px;
   padding: 6px 10px;
   top: 0;
-  right: 0;
+  left: 0;
   transform: translateX(0);
-  font-size: 18px;
-  transition: transform .3s ease;
+  transform: translateY(-100px);  
+  opacity: 1;
+  transition: all .3s ease;
+
+  p {
+    font-size: 16px;
+    @media (max-width: 400px) {
+      &{
+        font-size: 15px;
+      }
+    }
+  }
 }
 .popup.hidden {
   position: absolute;
-  transform: translateX(110%);
+  opacity: 0;
+  transform: translateY(-45px);
+  
 }

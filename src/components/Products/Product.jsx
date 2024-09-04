@@ -46,7 +46,7 @@ const Product = (item) => {
 
     return (
         <section className={styles.product}>
-            <Popup popupState={popupState}/> 
+            
             <div className={styles.images}>
                 <div className={styles.current}>
                                
@@ -91,6 +91,7 @@ const Product = (item) => {
                 <p className={styles.description}>{description}</p>
 
                 <div className={styles.actions}>
+                    <Popup popupState={popupState}/> 
                     <button className={styles.add} disabled={!currentSize} onClick={addToCart}>Add to cart</button>
                    
                     <Favicon item={item}/>

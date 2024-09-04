@@ -32,7 +32,7 @@ const Header = () => {
     const [values, setValues] = useState({ name: "Guest", avatar: "./avatar.svg"})
     const [searchValue, setSearchValue] = useState("");
     const [menuIsOpen, setMenuIsOpen] = useState(false);
-    
+        
     const { data, isLoading } = useGetProductsQuery({ title: searchValue})    
 
     //первая отрисовка страницы - достаем id последнего юзера
@@ -74,7 +74,7 @@ const Header = () => {
     const handleSearch = ({ target: { value } }) => {
         setSearchValue(value)
     };
-     
+    
 
     return (
         

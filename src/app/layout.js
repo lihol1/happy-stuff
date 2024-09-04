@@ -5,7 +5,7 @@ import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
 import Sidebar from '@/components/Sidebar/Sidebar';
 import UserForm from "@/components/User/UserForm";
-
+import UpBtn from "@/components/UpBtn/UpBtn";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -64,24 +64,21 @@ export const metadata = {
   
 };
 
-
-
-
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">   
-      
+    <html lang="en">        
       <body className={inter.className}>        
           <Provider>           
             <div className="wrapper">
-              <Header />
-              
+              <Header />             
+
               <div className='container'> 
                 <div className="holder">
                   <Sidebar />
                   <main className='main'>   
                       <UserForm />
-                        {children}  
+                      {children} 
+                      <UpBtn /> 
                   </main>
                   </div>              
               </div>

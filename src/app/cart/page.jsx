@@ -88,7 +88,7 @@ const CartPage = () => {
                     </div>
                   </div>
 
-                  <div className={styles.total}>{price * quantity}$</div>
+                  <div className={styles.total}>{(price * quantity).toFixed(2)}$</div>
 
                   <div className={styles.close} onClick={() => removeItem(item.id)}>
                     <svg className="icon">
