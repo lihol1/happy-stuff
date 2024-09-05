@@ -56,8 +56,10 @@
   object-fit: contain;
   
   transition: all 0.7s ease-in;
-  &:hover{    
-    transform: scale(1.05);
+  @media (any-hover: hover) { 
+    &:hover{    
+      transform: scale(1.05);
+    }
   }
 }
 
