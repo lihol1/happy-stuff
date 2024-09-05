@@ -58,6 +58,7 @@ img {
 
 input,
 button {
+  appearance: none;
   border: none;
   background: none;
   outline: none;
@@ -77,6 +78,16 @@ li {
   padding: 0;
   margin: 0;
   list-style: none;
+}
+
+// Чтобы убрать выделение голубым цветом элемента на модильных устройствах при нажатии
+input,
+textarea,
+button,
+select,
+div,
+a {
+    -webkit-tap-highlight-color: transparent;
 }
 
 .app {
