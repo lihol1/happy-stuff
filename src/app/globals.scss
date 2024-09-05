@@ -141,11 +141,12 @@ button {
   line-height: 20px;
   cursor: pointer;
   transition: all 0.2s ease;
-}
 
-button:hover { 
-  background: #db3939;
-
+  @media (any-hover: hover) {
+    &:hover { 
+      background: #db3939;
+    }
+  }
 }
 
 h2 {
@@ -240,14 +241,17 @@ main {
   svg {
     fill: var(--black)
   }
-  &:hover {
-    
-    background-color: #fff;
-    opacity: 1;
+  @media (any-hover:  hover) { 
+    &:hover {
+      background-color: #fff;
+      opacity: 1;
+    }
   }
-  &:active {
-    background-color: #fff;
-    opacity: 1;
+  @media (any-pointer: coarse) { 
+    &:active {
+      background-color: #fff;
+      opacity: 1;
+    }
   }
   @media (min-width: 991px) {
    & {

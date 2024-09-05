@@ -93,46 +93,37 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.2s ease;
-  &:hover {
-    background: var(--orange);
-  }
-  // @media (any-hover:  hover) and (pointer: none){
-    // &:hover,
-    // &:hover {
-    //   background: var(--orange);
-    // }
-  // }
+  transition: all 0.2s ease;  
 }
 
-// @media (any-hover: hover) {
-//   @media(pointer: none){
-//   .plus:hover,
-//   .minus:hover {
-//     background: var(--orange);
-//   }
-// }
-// }
+@media (any-hover: hover) {  
+  .plus:hover,
+  .minus:hover {
+    background: var(--orange);
+    svg {
+      fill: rgba(255, 255, 255, 1);
+    }
+  }
+}
+
+@media (any-pointer: coarse) {  
+  .plus:active,
+  .minus:active {
+    background: var(--orange);
+    svg {
+      fill: rgba(255, 255, 255, 1);
+    }
+  }
+}
+
 
 .quantity svg {
   width: 17px;
   height: 17px;
   fill: rgba(255, 255, 255, 0.5);
   transition: all 0.2s ease;
-  &:hover {
-    fill: rgba(255, 255, 255, 1);
-  }
+  
 }
-
-// .plus:hover,
-// .minus:hover {
-//   background: var(--orange);
-// }
-
-// .plus:hover svg,
-// .minus:hover svg {
-//   fill: rgba(255, 255, 255, 1);
-// }
 
 .close {
   cursor: pointer;
