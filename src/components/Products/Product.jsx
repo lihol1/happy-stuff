@@ -92,7 +92,7 @@ const Product = (item) => {
 
                 <div className={styles.actions}>
                     <Popup popupState={popupState}/> 
-                    <button className={styles.add} disabled={!currentSize} onClick={addToCart}>Add to cart</button>
+                    <button className={styles.add} disabled={!currentSize} title={!currentSize && "Choose your size"} onClick={addToCart}>Add to cart</button>
                    
                     <Favicon item={item}/>
                 </div>
