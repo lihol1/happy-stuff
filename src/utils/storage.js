@@ -33,3 +33,19 @@ export const getLastUser = ()=>{
         console.error(`Error getting userId from localStorage:`, error); 
     } 
 }
+
+export function saveData (name, value) {
+   
+    try {
+        localStorage.setItem(name, JSON.stringify(value))
+    } catch(error) {
+        console.log(`Error setting data in localStorage:`, error)
+    }
+}
+export function getData (name) {
+    try {
+        return JSON.parse(localStorage.getItem(name))
+    } catch(error) {
+        console.log(`Error setting data in localStorage:`, error)
+    }
+}

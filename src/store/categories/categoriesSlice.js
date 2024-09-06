@@ -1,13 +1,16 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { BASE_URL } from "../../utils/constants";
 import axios from "axios";
+import { getData, saveData } from '@/utils/storage';
+
+const list = getData('categoties') || []
 
 export const getCategories = createAsyncThunk(
     'categories/getCategories',
     async(_, thunkAPI)=>{
         try{
             const res = await axios(`${BASE_URL}/categories`);            
-            
+            saveData('categories', res)
             return res.data;
         }catch(err){
             return thunkAPI.rejectWithValue(err);
@@ -18,7 +21,7 @@ export const getCategories = createAsyncThunk(
 export const categorySlice = createSlice({
     name:'categories',
     initialState: {
-        list: [],
+        list,
         isLoading : false,
     },
     reducers: {},
@@ -41,6 +44,7 @@ export const categorySlice = createSlice({
                 } 
                 // console.log(state.list);
             })        
+           
         })
         builder.addCase(getCategories.rejected, (state)=>{         
             state.isLoading = false;

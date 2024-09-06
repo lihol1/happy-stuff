@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import styles from "../../styles/Profile.module.scss";
 import { useDispatch, useSelector } from 'react-redux';
 import { updateUser, resetUpdate } from "../../store/user/userSlice";
-import { useRouter } from 'next/navigation';
 import RegisterConfirmation from '@/components/User/RegisterConfirmation';
 import Link from 'next/link';
 import ErrorMessage from '@/components/User/ErrorMessage';
