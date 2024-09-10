@@ -6,15 +6,14 @@ import Products from '../Products/Products';
 import Categories from '../Categories/Categories';
 import { useSelector, useDispatch } from 'react-redux';
 import {  filterByPrice } from '../../store/products/productsSlice';
-
-import { getCategories } from '../../store/categories/categoriesSlice';
+// import { getCategories } from '../../store/categories/categoriesSlice';
 import { getProducts} from '../../store/products/productsSlice';
 
 const Home = () => {    
     const dispatch = useDispatch();
 
   useEffect(()=>{
-      dispatch(getCategories());
+    //   dispatch(getCategories());
       dispatch(getProducts());
   }, [dispatch]);
     

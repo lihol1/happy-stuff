@@ -9,7 +9,7 @@ import img4 from '@/images/categories/accessoires.jpg';
 import img5 from '@/images/categories/shoes.jpg';
 
 const Categories = ({ title, products=[], amount }) => {
-    const list = products.filter((_, i)=> i<amount)
+    // const list = products.filter((_, i)=> i<amount)
     return (
         <section className={styles.section}>
             <h2 className={styles.title}>{title}</h2>

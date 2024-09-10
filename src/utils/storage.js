@@ -38,6 +38,7 @@ export function saveData (name, value) {
    
     try {
         localStorage.setItem(name, JSON.stringify(value))
+        console.log('сохранено')
     } catch(error) {
         console.log(`Error setting data in localStorage:`, error)
     }
@@ -46,6 +47,6 @@ export function getData (name) {
     try {
         return JSON.parse(localStorage.getItem(name))
     } catch(error) {
-        console.log(`Error setting data in localStorage:`, error)
+        console.log(`Error getting data in localStorage:`, error)
     }
 }

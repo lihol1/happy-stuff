@@ -1,16 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { BASE_URL } from "../../utils/constants";
 import axios from "axios";
-import { getData, saveData } from '@/utils/storage';
-
-const list = getData('categoties') || []
 
 export const getCategories = createAsyncThunk(
     'categories/getCategories',
     async(_, thunkAPI)=>{
         try{
-            const res = await axios(`${BASE_URL}/categories`);            
-            saveData('categories', res)
+            const res = await axios(`${BASE_URL}/categories`);              
             return res.data;
         }catch(err){
             return thunkAPI.rejectWithValue(err);
@@ -21,7 +17,7 @@ export const getCategories = createAsyncThunk(
 export const categorySlice = createSlice({
     name:'categories',
     initialState: {
-        list,
+        list:[],
         isLoading : false,
     },
     reducers: {},
@@ -29,11 +25,11 @@ export const categorySlice = createSlice({
         builder.addCase(getCategories.pending, (state)=>{
             state.isLoading = true;
         })
-        builder.addCase(getCategories.fulfilled, (state, {payload})=>{
-            state.list = payload;
+        builder.addCase(getCategories.fulfilled, (state, {payload})=>{           
+            state.list = payload;            
             state.isLoading = false;            
-            //исправляю косяк API (некоторые url картинок некорректны) 
-           
+            
+            //исправляю косяк API (некоторые url картинок некорректны)            
             state.list.forEach(item=>{
                 //проверка расширений картинок
                 const data = (item.image);

@@ -4,13 +4,20 @@
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import styles from '../../styles/Sidebar.module.scss';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { ROUTES } from '@/utils/routes';
+import { useEffect } from 'react';
+import { getCategories } from "@/store/categories/categoriesSlice";
 
 
 const Sidebar = () => {
-    const pathname = usePathname();   
+    const pathname = usePathname(); 
+    const dispatch = useDispatch();    
     const {list} = useSelector(({categories}) => categories)
+
+    useEffect(()=>{
+        dispatch(getCategories());       
+    }, [dispatch]);     
     
     return (
         <aside className={styles.sidebar}>
@@ -18,17 +25,15 @@ const Sidebar = () => {
                 <div className={styles.title}>CATEGORIES</div>
                 <nav className={styles.menu}>
                     <ul className={styles.menu}>
+                        
                         {list.map(({id, name})=>
-                        <li key={id}>
-                            <Link href={`/categories/${id}`}
-                            
-                            className={`${styles.link} ${pathname === `/categories/${id}` ? styles.active : ""}`}
-                            
-                            >
-                            {name}
-                            </Link>
-                        </li>
+                            <li key={id}>
+                                <Link href={`/categories/${id}`} className={`${styles.link} ${pathname === `/categories/${id}` ? styles.active : ""}`}>
+                                    {name}
+                                 </Link>
+                            </li>
                         )}
+
                     </ul>
                 </nav>
 
