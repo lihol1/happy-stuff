@@ -175,6 +175,7 @@ input::-webkit-inner-spin-button {
 }
 
 input[type="number"] {
+  appearance: textfield;
   -moz-appearance: textfield; /* Firefox */
 }
 
@@ -238,6 +239,7 @@ main {
   width: rem(40);
   height: rem(40);   
   z-index: 10;
+  line-height: 1;
   box-shadow: 0px 1px 12px 0px rgba(105, 56, 46, 0.5);
   border-radius: rem(6); 
   background-color: #fff;
@@ -250,7 +252,9 @@ main {
   }
 
   svg {
-    fill: var(--black)
+    position: relative;
+    top: 2px;
+    fill: var(--black);
   }
   @media (any-hover:  hover) { 
     &:hover {
