@@ -57,7 +57,8 @@ const Product = (item) => {
                     src={currentImage}
                     alt={title} 
                     width={375}
-                    height={375}                    
+                    height={375} 
+                    priority={true}                   
                 />
                 </div>  
                 <div className={styles["images-list"]}>

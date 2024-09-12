@@ -35,7 +35,7 @@ export default function ProductPage({ params }) {
 
     return (    
 <>
-    {isLoading ? <div className="preloader">Loading...</div> : data ? (
+    {isLoading ? <div className="preloader" style={{'padding': '50px 30px'}}>Loading...</div> : data ? (
     <>
         <Product {...data}/>                
         {<Products products={related} amount={5} title="Related products" />} 
