@@ -36,12 +36,12 @@ const Slider = () => {
                 width: 12px;
                 height: 12px;
                 margin: 0 6px;
-                background-color: #f18102;
+                background-color: #272626;
                 opacity: 0.5;
-                border: 2px solid rgba(0, 0, 0, 0.4);
+                border: 2px solid rgba(0, 0, 0, 0.8);
               }
               .swiper-pagination-bullet-active {
-                background-color: #f18102;
+                background-color: #272626;
                 opacity: 0.8;
                 
               }
