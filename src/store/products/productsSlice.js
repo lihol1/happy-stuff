@@ -3,18 +3,13 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { BASE_URL } from "../../utils/constants";
 import { shuffle } from "../../utils/common";
 import axios from "axios";
-import { getData, saveData } from '@/utils/storage';
-
-const related = getData('related') !== null ? getData('related') : []
 
 export const getProducts = createAsyncThunk(
     'products/getProducts',
     async(_, thunkAPI)=>{
-        try{
-            
+        try{            
             const res = await axios(`${BASE_URL}/products`);             
-            return res.data
-           
+            return res.data           
         }catch(err){
             
             return thunkAPI.rejectWithValue(err);
@@ -27,7 +22,7 @@ export const productsSlice = createSlice({
     initialState: {
         list: [],
         filtered: [],
-        related,
+        related:[],
         isLoading : false,
         productsByCat: [],
     },
@@ -37,15 +32,14 @@ export const productsSlice = createSlice({
         },
         getRelatedProducts: (state, { payload }) => {                       
             const list = state.list.filter(({ category: { id } }) => id === payload )            
-            state.related = shuffle(list);
-            saveData ('related', state.related)                       
+            state.related = shuffle(list);                                  
         }
     },
     extraReducers: builder=>{
-        builder.addCase(getProducts.pending, (state)=>{            
+        builder.addCase(getProducts.pending, (state)=>{                   
             state.isLoading = true;            
         })
-        builder.addCase(getProducts.fulfilled, (state, {payload})=>{          
+        builder.addCase(getProducts.fulfilled, (state, {payload})=>{                     
             state.list = payload;
             state.isLoading = false;        
         })

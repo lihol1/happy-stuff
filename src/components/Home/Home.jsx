@@ -27,14 +27,12 @@ const Home = () => {
 
     
     return (      
-        <> 
-       
+        <>        
             <Slider />           
             <Products products={list} amount={6} title="Trending" /> 
             <Banner />
             <Categories products={categories.list} amount={6} title="Worth seeing" />
-            <Products products={filtered} amount={6} title="Less than $50" />
-           
+            <Products products={filtered} amount={6} title="Less than $50" />           
         </> 
     );
 };

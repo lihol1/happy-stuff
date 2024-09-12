@@ -9,8 +9,8 @@ export default function StoreProvider({ children }) {
         storeRef.current = makeStore()
     }
    
-    return <Provider store={storeRef.current}>              
-         {children}       
+    return <Provider store={storeRef.current}> 
+         {children} 
     </Provider>
 
 }

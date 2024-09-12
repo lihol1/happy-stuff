@@ -1,4 +1,4 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import categoriesReducer from "./categories/categoriesSlice";
 import productsReducer from "./products/productsSlice";
 import userReducer from "./user/userSlice";
@@ -12,8 +12,9 @@ export const makeStore=() => {
         products: productsReducer, 
         user: userReducer,      
         [apiSlice.reducerPath]: apiSlice.reducer
-    },
+    },    
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(apiSlice.middleware),
     devTools:true,//вроде и так по умолчанию true
 })
 }
+

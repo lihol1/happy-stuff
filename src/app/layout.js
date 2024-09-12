@@ -84,7 +84,7 @@ export default function RootLayout({ children }) {
               </div>
 
               <Footer />
-            </div>           
+            </div>            
           </Provider>
         
       </body>
