@@ -34,6 +34,9 @@ const Product = (item) => {
         setCurrentImage(correctUrl(images)[0])         
     },[images])      
 
+    function getRandomNumber (min, max){
+       return Math.floor(Math.random() * (max - min + 1)) + min
+    }
     const addToCart =()=>{
         if(!currentUser) {
             dispatch(toggleForm(true))
@@ -98,7 +101,7 @@ const Product = (item) => {
                 </div>
 
                 <div className={styles.bottom}>
-                    <div className={styles.purchase}>19 people purchased
+                    <div className={styles.purchase}>{getRandomNumber(10, 1000)} people purchased
                     </div>
                     <Link href={ROUTES.HOME}>Return to store</Link>
                 </div>
