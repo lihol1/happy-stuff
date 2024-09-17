@@ -15,7 +15,7 @@ const Product = (item) => {
     
     const currentUser = useSelector(state=>state.user.currentUser)
     const { title, price, images, description } = item;     
-    const [currentImage, setCurrentImage] = useState(); 
+    const [currentImage, setCurrentImage] = useState('/backup-img.jpeg'); 
     const [currentSize, setCurrentSize] = useState(); 
     const [popupState, setPopupState] = useState(false); 
 
