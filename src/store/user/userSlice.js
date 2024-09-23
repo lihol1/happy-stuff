@@ -97,10 +97,10 @@ export const userSlice = createSlice({
         removeItemFromCart:  (state, { payload }) => {
             state.cart = state.cart.filter(({ id })=> id !== payload)           
         },
-        addToFav: (state, { payload }) =>{
+        addToFav: (state, { payload }) =>{           
             state.favourite.push(payload.item);                 
         },
-        removeFromFav: (state, { payload }) => {                 
+        removeFromFav: (state, { payload }) => {                            
             state.favourite =  state.favourite.filter(({ id })=> id !== payload.id);
         },
                 
@@ -110,9 +110,10 @@ export const userSlice = createSlice({
         toggleFormType: (state, { payload }) => {
             state.formType = payload;
         }, 
-        loadState: (state, {  payload  } ) => {           
+        loadState: (state, {  payload  } ) => {                     
             state.cart = payload.cart;         
             state.favourite = payload.favourite;
+            
         },
         resetState: (state) => {
             state.currentUser =null;
@@ -122,7 +123,8 @@ export const userSlice = createSlice({
             state.formType = "signup";
             state.showForm = false;
         },
-        addUser: (state, { payload }) => {           
+        addUser: (state, { payload }) => { 
+            console.log('addUser - ',payload)          
             state.currentUser = payload; 
         }, 
         resetError: (state) =>{

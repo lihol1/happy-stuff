@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from '../../styles/Header.module.scss';
@@ -7,13 +7,12 @@ import { ROUTES } from "../../utils/routes";
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleForm, loadState, addUser, resetState} from "../../store/user/userSlice";
 import { useGetProductsQuery } from '../../store/api/apiSlice';
-
 import {  getState, saveState, saveLastUser, getLastUser } from '@/utils/storage';
 import dynamic from 'next/dynamic';
 
-
 import Burger from '@/components/Header/BurgerMenu';
 import MobileMenu from '@/components/Header/MobileMenu';
+import { useSkipFirstRender } from '@/hooks/useSkipFirstRender'
 
 
 //делаем этот компонент динамическим(не будет отрисовываться на сервере), чтобы  не было ошибки, что данные, приходящие с сервера не соответствуют данным на клиенте
@@ -33,34 +32,54 @@ const Header = () => {
     const [searchValue, setSearchValue] = useState("");
     const [menuIsOpen, setMenuIsOpen] = useState(false);
         
-    const { data, isLoading } = useGetProductsQuery({ title: searchValue})    
+    const { data, isLoading } = useGetProductsQuery({ title: searchValue}) 
 
-    //первая отрисовка страницы - достаем id последнего юзера
+    //достаем данные, загружаем в состояние 
     useEffect(()=>{
-        const lastUser = getLastUser();
-        if(lastUser) dispatch(addUser(lastUser));
-        return 
-    },[dispatch])
+        const lastUser = getLastUser(); 
+        if(lastUser !== null) dispatch(addUser(lastUser));
 
-    // когда появляется currentUser
-    useEffect(()=>{
-        if (currentUser) {
+        if(currentUser !== null){            
             if(getState(currentUser.id)) {                      
                dispatch(loadState(getState(currentUser.id)));             
+            }   
+        } else {                
+            if(getState()) {
+               dispatch(loadState(getState()));                   
+            }
+        }         
+        saveLastUser(currentUser); 
+    },[dispatch])
+     
+
+    useEffect(()=>{       
+        if(currentUser !== null){
+            if(getState(currentUser.id)) {                      
+                dispatch(loadState(getState(currentUser.id)));             
             } else {               
                 saveState(userState, currentUser.id);               
-            }            
-        }
+            }   
+        } else {
+            if(getState()) {
+                dispatch(loadState(getState()))
+            } else {
+                saveState(userState)
+            }                 
+        }        
         saveLastUser(currentUser); 
     }, [dispatch, currentUser])
-    
-    // когда меняется состояние корзины или избранного
-    useEffect(()=>{       
-        if (currentUser) {
-           saveState(userState, currentUser.id)
+   
+    //сохраняем, если меняются корзина и избранное 
+    useSkipFirstRender(save, [userState.cart, userState.favourite])
+   
+    function save() {       
+        if(currentUser !== null){
+            saveState(userState, currentUser.id)
+        } else {                
+            saveState(userState)
         }
-        return;
-    }, [userState.cart, userState.favourite])
+    }            
+       
     
 
     useEffect(()=>{    
@@ -74,7 +93,6 @@ const Header = () => {
     const handleSearch = ({ target: { value } }) => {
         setSearchValue(value)
     };
-    
 
     return (
         

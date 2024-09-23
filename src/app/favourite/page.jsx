@@ -10,11 +10,15 @@ const FavouritePage = () => {
     const { favourite } = useSelector(state => state.user)
     const { list } = useSelector(({  products }) => products)
 
+    //  console.log(favourite)
+
     const dispatch = useDispatch();
 
     useEffect(()=>{
         dispatch(getProducts());
     }, [dispatch]);
+
+  
 
     return (
         <div className={styles.favourite}>
