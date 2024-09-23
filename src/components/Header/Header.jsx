@@ -26,6 +26,8 @@ const DynamicAccount = dynamic(() => import('./DynamicAccount'), {
 
 const Header = () => {   
     const userState = useSelector(state=>state.user)
+    const cart = useSelector(state=>state.user.cart)
+    const favourite = useSelector(state=>state.user.favourite)
     const dispatch = useDispatch();    
     const { currentUser} = useSelector(({ user }) => user);
     const [values, setValues] = useState({ name: "Guest", avatar: "./avatar.svg"})
@@ -33,6 +35,8 @@ const Header = () => {
     const [menuIsOpen, setMenuIsOpen] = useState(false);
         
     const { data, isLoading } = useGetProductsQuery({ title: searchValue}) 
+
+    console.log(favourite.length)
 
     //достаем данные, загружаем в состояние 
     useEffect(()=>{
@@ -149,13 +153,14 @@ const Header = () => {
                                 <svg className={styles["icon-fav"]}>
                                     <use xlinkHref="/sprite.svg#heart"></use>
                                 </svg>
+                                <DynamicCartNumber num={favourite.length}/>
                             </Link>
 
                             <Link href={ROUTES.CART} className={styles.cart} aria-label="Go to the cart">
                                 <svg className={styles["icon-cart"]}>
                                     <use xlinkHref="/sprite.svg#bag"></use>
                                 </svg>
-                                <DynamicCartNumber />
+                                <DynamicCartNumber num={cart.length}/>
                                 
                             </Link> 
 
