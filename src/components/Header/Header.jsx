@@ -1,11 +1,11 @@
 'use client'
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from '../../styles/Header.module.scss';
 import { ROUTES } from "../../utils/routes";
 import { useSelector, useDispatch } from 'react-redux';
-import { toggleForm, loadState, addUser, resetState} from "../../store/user/userSlice";
+import { loadState, addUser } from "../../store/user/userSlice";
 import { useGetProductsQuery } from '../../store/api/apiSlice';
 import {  getState, saveState, saveLastUser, getLastUser } from '@/utils/storage';
 import dynamic from 'next/dynamic';
@@ -34,9 +34,7 @@ const Header = () => {
     const [searchValue, setSearchValue] = useState("");
     const [menuIsOpen, setMenuIsOpen] = useState(false);
         
-    const { data, isLoading } = useGetProductsQuery({ title: searchValue}) 
-
-    console.log(favourite.length)
+    const { data, isLoading } = useGetProductsQuery({ title: searchValue})  
 
     //достаем данные, загружаем в состояние 
     useEffect(()=>{

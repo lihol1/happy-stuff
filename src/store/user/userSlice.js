@@ -123,8 +123,7 @@ export const userSlice = createSlice({
             state.formType = "signup";
             state.showForm = false;
         },
-        addUser: (state, { payload }) => { 
-            console.log('addUser - ',payload)          
+        addUser: (state, { payload }) => {                    
             state.currentUser = payload; 
         }, 
         resetError: (state) =>{
