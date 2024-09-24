@@ -2,15 +2,20 @@
 
 .category {
   width: 100%;  
-  min-height: 1200px;
+  min-height: 990px;
   padding: 24px;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   background-color: var(--light);
-  @include adaptiveValue('margin-bottom', 70, 50);
+  // @include adaptiveValue('margin-bottom', 70, 50);
+  margin-bottom: 20px;
   @media (max-width: 680px) {
     padding: 15px;
+  }
+  @media (max-width: 400px) {
+    padding: 15px 5px;
+    min-height: 800px;
   }
 }
 

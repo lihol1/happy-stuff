@@ -23,6 +23,7 @@ const DynamicAccount = dynamic(() => import('./DynamicAccount'), {
     ssr: false,
   })
 
+  let rightPadding;
 
 const Header = () => {   
     const userState = useSelector(state=>state.user)
@@ -35,6 +36,11 @@ const Header = () => {
     const [menuIsOpen, setMenuIsOpen] = useState(false);
         
     const { data, isLoading } = useGetProductsQuery({ title: searchValue})  
+
+
+    useEffect(()=>{
+        rightPadding = window.innerWidth - document.body.offsetWidth;
+    }, [])
 
     //достаем данные, загружаем в состояние 
     useEffect(()=>{
@@ -82,7 +88,14 @@ const Header = () => {
         }
     }            
        
-    
+    function changeRightPadding(){ 
+        if (document.body.classList.contains('lock')){               
+            document.body.style.paddingRight = `${rightPadding}px`;                
+        }
+        else {
+            document.body.style.paddingRight = '0px';                 
+        }
+    }      
 
     useEffect(()=>{    
             if(!currentUser) {setValues({name: "Guest", avatar: "./avatar.svg"})
@@ -169,8 +182,8 @@ const Header = () => {
 
                     
 
-                    <Burger menuIsOpen={menuIsOpen} setMenuIsOpen={setMenuIsOpen}/>
-                    <MobileMenu menuIsOpen={menuIsOpen} setMenuIsOpen={setMenuIsOpen}/>
+                    <Burger menuIsOpen={menuIsOpen} setMenuIsOpen={setMenuIsOpen} changeRightPadding={changeRightPadding}/>
+                    <MobileMenu menuIsOpen={menuIsOpen} setMenuIsOpen={setMenuIsOpen} changeRightPadding={changeRightPadding}/>
                 </div>
             </div>
         </header>

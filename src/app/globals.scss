@@ -125,16 +125,20 @@ a {
 
 .holder{
   display: flex;   
-  gap: 20px; 
+  gap: 30px; 
   margin-bottom: 20px;
   
 }
 .main { 
   width:  calc(100% - 270px);
+  min-height: 900px;
   @media (max-width: 991.98px) {
     & {    
       width: 100%;
     }
+  }
+  @media (max-width: 400px) {
+    min-height: 450px;
   }
 }
 
@@ -182,10 +186,6 @@ input[type="number"] {
 input {
   padding: 0;
 }
-
-main {
-  min-height: 1270px;
-} 
 
 .preloader {  
   width: 100%;

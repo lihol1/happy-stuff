@@ -3,10 +3,12 @@ import styles from '../../styles/Header.module.scss';
 import { useSelector } from 'react-redux';
 import Link from 'next/link';
 
-const MobileMenu = ({menuIsOpen, setMenuIsOpen}) => {     
+const MobileMenu = ({menuIsOpen, setMenuIsOpen, changeRightPadding}) => {     
     const {list} = useSelector(({categories}) => categories)
     const handleClick =() =>{
-        setMenuIsOpen(!menuIsOpen)
+        setMenuIsOpen(!menuIsOpen);
+        document.body.classList.remove('lock');
+        changeRightPadding();
     }
 
     return (

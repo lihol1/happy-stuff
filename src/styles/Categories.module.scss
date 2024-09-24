@@ -12,6 +12,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(189px, 1fr));
   gap: 15px;
+  row-gap: 30px;
   justify-items: center;
 }
 .title {
@@ -25,8 +26,11 @@
   overflow: hidden;
   text-align: center;
   border-radius: 6px;
+  border: 1px solid var(--black);
+  transition: all 0.3s ease;
   &:hover {
-    box-shadow: 0px 1px 8px 5px rgba(231, 219, 197,1);
+    // box-shadow: 0px 1px 8px 5px rgba(231, 219, 197,1);
+    box-shadow: 0px 1px 8px 5px rgba(121, 85, 72, 0.4);
     .title {      
       color: var(--orange);
     }

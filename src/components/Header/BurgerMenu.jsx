@@ -1,28 +1,12 @@
 'use client'
 import styles from '../../styles/Header.module.scss';
-import { useEffect } from 'react';
 
-let rightPadding;
-
-const Burger = ({menuIsOpen, setMenuIsOpen}) => { 
+const Burger = ({menuIsOpen, setMenuIsOpen, changeRightPadding}) => { 
     
-    useEffect(()=>{
-        rightPadding = window.innerWidth - document.body.offsetWidth;
-    }, [])
-             
-
     function handleClick (){    
         setMenuIsOpen(!menuIsOpen);        
         document.body.classList.toggle('lock');
-        changeRightPadding();       
-        function changeRightPadding(){ 
-            if (document.body.classList.contains('lock')){               
-                document.body.style.paddingRight = `${rightPadding}px`;                
-            }
-            else {
-                document.body.style.paddingRight = '0px';                 
-            }
-        }       
+        changeRightPadding(); 
     }
 
     return (
