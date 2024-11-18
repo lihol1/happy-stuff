@@ -26,13 +26,39 @@ const Sidebar = () => {
                 <nav className={styles.menu}>
                     <ul className={styles.menu}>
                         
-                        {list.map(({id, name})=>
+                        {/* {list.map(({id, name})=>
                             <li key={id}>
                                 <Link href={`/categories/${id}`} className={`${styles.link} ${pathname === `/categories/${id}` ? styles.active : ""}`}>
                                     {name}
                                  </Link>
                             </li>
-                        )}
+                        )} */}
+
+                            <li>
+                                <Link href={`/categories/1`} className={`${styles.link} ${pathname === `/categories/1` ? styles.active : ""}`}>
+                                    Clothes
+                                 </Link>
+                            </li>
+                            <li>
+                                <Link href={`/categories/2`} className={`${styles.link} ${pathname === `/categories/2` ? styles.active : ""}`}>
+                                    Caps
+                                 </Link>
+                            </li>
+                            <li>
+                                <Link href={`/categories/3`} className={`${styles.link} ${pathname === `/categories/3` ? styles.active : ""}`}>
+                                    T-Shirts
+                                 </Link>
+                            </li>
+                            <li>
+                                <Link href={`/categories/4`} className={`${styles.link} ${pathname === `/categories/4` ? styles.active : ""}`}>
+                                    Shoes
+                                 </Link>
+                            </li>
+                            <li>
+                                <Link href={`/categories/6`} className={`${styles.link} ${pathname === `/categories/6` ? styles.active : ""}`}>
+                                    Accessoires
+                                 </Link>
+                            </li>
 
                     </ul>
                 </nav>
